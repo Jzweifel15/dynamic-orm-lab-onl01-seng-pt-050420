@@ -29,8 +29,8 @@ class InteractiveRecord
     DB[:conn].execute(sql)
   end
   
-  def self.find_by(row)
-    sql = "SELECT #{row} FROM #{self.table_name}"
+  def self.find_by
+    sql = "SELECT * FROM #{self.table_name}"
   end
   
   def initialize(options = {})
