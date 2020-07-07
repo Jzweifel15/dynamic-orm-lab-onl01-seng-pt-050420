@@ -30,7 +30,7 @@ class InteractiveRecord
   end
   
   def self.find_by(row)
-    sql = "SELECT * FROM #{self.table_name}"
+    sql = "SELECT * FROM #{self.table_name} WHERE #{row}"
   end
   
   def initialize(options = {})
