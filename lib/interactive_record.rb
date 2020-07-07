@@ -24,6 +24,11 @@ class InteractiveRecord
     attr_accessor col_name.to_sym
   end
   
+  def self.find_by_name(name)
+    sql = "SELECT * FROM #{self.table_name} WHERE name = '#{name}'"
+    DB[:conn].execute(sql)
+  end
+  
   def initialize(options = {})
     options.each do |property, value|
       self.send("#{property}=", value)
