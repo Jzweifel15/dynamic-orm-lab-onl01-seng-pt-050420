@@ -29,6 +29,10 @@ class InteractiveRecord
     DB[:conn].execute(sql)
   end
   
+  def self.find_by(row)
+    sql = "SELECT #{row} FROM #{self.table_name}"
+  end
+  
   def initialize(options = {})
     options.each do |property, value|
       self.send("#{property}=", value)
